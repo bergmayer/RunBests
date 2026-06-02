@@ -1,0 +1,346 @@
+================================================================================
+RUN BESTS — MARKETING COPY
+================================================================================
+
+A complete set of copy variants for App Store Connect, social, press, and email.
+Word counts / character counts noted where Apple enforces them. Tweak as needed.
+
+
+================================================================================
+APP STORE CONNECT
+================================================================================
+
+──────────────────────────────────────────────────────────────────────────────
+APP NAME (30 char max)
+──────────────────────────────────────────────────────────────────────────────
+
+Run Bests
+
+
+──────────────────────────────────────────────────────────────────────────────
+SUBTITLE (30 char max)
+──────────────────────────────────────────────────────────────────────────────
+
+Primary:
+Running PRs from Apple Health
+
+Alternates:
+Surface your running bests
+Find your true running PRs
+Personal bests for runners
+
+
+──────────────────────────────────────────────────────────────────────────────
+PROMOTIONAL TEXT (170 char max, editable any time without resubmission)
+──────────────────────────────────────────────────────────────────────────────
+
+Apple Fitness logs your runs but never shows your PRs. Run Bests groups
+near-miss distances into one clean leaderboard so your real personal bests
+finally surface.
+
+
+──────────────────────────────────────────────────────────────────────────────
+DESCRIPTION (4000 char max)
+──────────────────────────────────────────────────────────────────────────────
+
+Apple Fitness is a fantastic tool, but it's missing one crucial feature: a way
+to actually see your personal best running times.
+
+That's exactly why Run Bests exists.
+
+Runners rarely hit the exact same distance twice. Your "5-mile run" might be
+5.1 miles today and 5.05 miles tomorrow. Because of that variation, tracking
+your true PRs has always been a headache. Run Bests fixes that with smart
+distance bracketing that uncovers the personal bests hidden in your workout
+history.
+
+Just set a target distance (in miles or kilometers) and choose a "margin of
+error." For example, if you want to find your fastest 5-mile run, set a 0.25
+margin and Run Bests will instantly scan your selected date range and pull
+every run between 5.0 and 5.25 miles into one clean, sortable list.
+
+KEY FEATURES
+
+🏃 Smart Distance Bracketing
+Group your past runs using a custom margin of error (0, 0.25, 0.5, or 1) so no
+near-miss gets left out. Margin is applied upward only — a 4.99-mile workout
+won't count toward 5-mile until it crosses the line.
+
+⏱ Race Time vs. Workout Time
+For each qualifying workout, see both the time you crossed the exact target
+distance (race time, GPS-derived) and the full elapsed workout time. Each
+metric has its own pace. Sort the top 20 by any of the four.
+
+⚡ Best Segment Paces
+Find your fastest contiguous 1 km, 1 mile (or any distance you pick) found
+anywhere inside any run — even if your fastest mile happened in the middle of
+a long marathon.
+
+🏅 Major Races + Overall Records
+Toggle Half Marathon and Marathon (21.0975 km and 42.195 km). Plus longest
+distance, longest duration, and fastest average pace — all opt-in, all
+configurable.
+
+📅 Custom Date Filters
+Browse PRs across all time, the last 30 / 90 days, the last year, a single
+year, or any custom date range. Watch yourself improve across a training
+cycle.
+
+📊 Tap-to-Sort Leaderboards
+Inside each category, top 20 by Race time, Race pace, Workout time, or
+Workout pace. Tap any row to drill into the workout — route map, heart rate,
+energy, temperature, the works.
+
+🔒 Privacy by Design
+Run Bests reads your running workouts from Apple Health and stores a private
+local cache on your device. Nothing leaves your phone. No account, no
+servers, no tracking.
+
+WHY RUN BESTS
+
+Most fitness apps either dump every workout into an endless feed or compute
+arbitrary "PR" badges that ignore how messy real-world distances are. Run
+Bests treats runners like adults: you tell it the distances you care about,
+the margin you'll accept, and the time window — and it does the math.
+
+
+──────────────────────────────────────────────────────────────────────────────
+KEYWORDS (100 char max, comma-separated, no spaces between)
+──────────────────────────────────────────────────────────────────────────────
+
+running,run,workout,fitness,health,PR,personal,best,marathon,half,5K,10K,pace,segment,race
+
+
+──────────────────────────────────────────────────────────────────────────────
+WHAT'S NEW (4000 char max) — initial release
+──────────────────────────────────────────────────────────────────────────────
+
+Hello, runners 👋
+
+This is Run Bests 1.0 — a brand-new way to actually see your personal bests
+across the running workouts already in Apple Health.
+
+What's in 1.0:
+• Smart distance bracketing with a tunable margin (0 / 0.25 / 0.5 / 1)
+• Race time and workout time, with paces, for every qualifying workout
+• Best-segment paces (your fastest mile inside any run)
+• Half Marathon, Marathon, longest distance/duration, fastest avg pace
+• Date filters: recent windows, single year, custom date range
+• Route map, heart rate, energy, and weather on each workout's detail
+• Local cache so the app launches instantly and syncs only what's new
+
+Found a bug or want a feature? Get in touch — this app is shaped by what real
+runners ask for.
+
+
+================================================================================
+SHORT-FORM COPY
+================================================================================
+
+──────────────────────────────────────────────────────────────────────────────
+ONE-LINER (~120 char)
+──────────────────────────────────────────────────────────────────────────────
+
+Run Bests turns the running workouts in Apple Health into a sortable
+leaderboard of your real personal bests.
+
+
+──────────────────────────────────────────────────────────────────────────────
+ELEVATOR PITCH (1 short paragraph)
+──────────────────────────────────────────────────────────────────────────────
+
+Apple Fitness records every run but never tells you your fastest 5-mile.
+Run Bests fixes that. Set the distances you train at, give it a margin
+of error, and it surfaces your true personal bests from every workout
+already in Apple Health — race time, workout time, and pace for both.
+
+
+──────────────────────────────────────────────────────────────────────────────
+TAGLINES
+──────────────────────────────────────────────────────────────────────────────
+
+Your running PRs, finally.
+The leaderboard Apple Fitness forgot.
+Bracket your bests.
+A real PR tracker for real runners.
+
+
+================================================================================
+SOCIAL POSTS
+================================================================================
+
+──────────────────────────────────────────────────────────────────────────────
+TWITTER / X (280 char)
+──────────────────────────────────────────────────────────────────────────────
+
+Launch tweet:
+Apple Fitness tracks every run but never shows you your PRs. So I built
+Run Bests — a tiny iOS app that surfaces your real personal bests by
+bracketing your past workouts. Free on the App Store. 🏃
+[App Store link]
+
+Tech tweet (for devs):
+Built Run Bests this weekend — all SwiftUI, reads HealthKit, computes
+race time at the exact GPS-distance mark, supports four sort modes per
+race bracket. Local-only, no servers. App Store: [link]
+
+
+──────────────────────────────────────────────────────────────────────────────
+REDDIT (r/running, r/iphone, r/apple)
+──────────────────────────────────────────────────────────────────────────────
+
+Title:
+I built an iOS app that finally shows your running PRs from Apple Health
+
+Body:
+Hey r/running 👋
+
+Quick story: I've been running for years and it always bothered me that
+Apple Fitness records every workout but never surfaces your personal bests.
+My fastest 5-mile, fastest 10K, fastest 1-mile segment from inside a long
+run — all that data is in Health, it's just never displayed.
+
+So I built Run Bests. It scans your running workouts and groups them by
+race distance using a "margin of error" you set (since your "5-mile run"
+is almost never exactly 5.0 mi). You get a clean leaderboard per distance,
+sortable by race time, race pace, workout time, or workout pace.
+
+Other stuff:
+• Best segment paces — fastest contiguous 1 mi / 1 km from any run
+• Half marathon + marathon recognized automatically
+• Filter by recent windows or custom date range
+• Route map, heart rate, weather on each workout
+
+100% local. No account, no servers, no tracking. Reads from Health only.
+
+Free on the App Store: [link]
+
+Happy to take feature requests in the comments.
+
+
+──────────────────────────────────────────────────────────────────────────────
+LINKEDIN
+──────────────────────────────────────────────────────────────────────────────
+
+Shipped a small thing this week — Run Bests, an iOS app that turns your
+Apple Health running workouts into a sortable leaderboard of personal
+bests. The core idea: distance bracketing with a user-set margin of
+error, because real-world runs are never exactly 5.0 mi.
+
+Built it because Apple Fitness collects all the data but never surfaces
+PRs by race distance. Now it does.
+
+[App Store link]
+
+
+────��─────────────────────────────────────────────────────────────────────────
+MASTODON / BLUESKY (variable length)
+──────────────────────────────────────────────────────────────────────────────
+
+I built a thing: Run Bests. It takes your running workouts from Apple
+Health and finally shows you your personal bests by race distance —
+with a margin of error because nobody runs *exactly* 5.0 miles. Free,
+local-only, no account.
+
+[App Store link]
+
+
+================================================================================
+EMAIL / NEWSLETTER
+================================================================================
+
+──────────────────────────────────────────────────────────────────────────────
+LAUNCH EMAIL — SUBJECT LINES (pick one)
+──────────────────────────────────────────────────────────────────────────────
+
+• Your running PRs, finally surfaced
+• The PR tracker Apple Fitness should have built
+• Run Bests is live — find your real personal bests
+• Built for runners who actually want to see their PRs
+
+
+──────────────────────────────────────────────────────────────────────────────
+LAUNCH EMAIL — BODY
+──────────────────────────────────────────────────────────────────────────────
+
+Hi,
+
+Apple Fitness records every run you take but never shows you your fastest
+5-mile, or the fastest mile inside your last marathon, or how you're
+trending across a training cycle.
+
+I got tired of that, so I built Run Bests — a small iOS app that surfaces
+your real personal bests from the workouts already in Apple Health.
+
+How it works:
+
+1. You pick distances you care about (miles or km). Defaults: 2 mi, 3 mi,
+   5K, 5 mi, 10K. Add up to 10 of your own.
+2. You set a "margin of error" — 0.25 by default — to scoop near-miss
+   distances into the same bucket. (Margin is applied upward only.)
+3. Run Bests scans your Health workouts and shows your PRs per category,
+   sortable by race time, race pace, workout time, or workout pace.
+
+Plus:
+• Best segment paces (your fastest mile from any workout)
+• Half marathon + marathon recognized automatically
+• Date filters: last 30 days, last year, custom range
+• Route map, heart rate, weather for every workout
+
+It's 100% local — no account, no servers. Reads from Health only.
+
+Download Run Bests on the App Store: [link]
+
+Happy running,
+[Your name]
+
+
+──────────────────────────────────────────────────────────────────────────────
+NEWSLETTER BLURB (~100 words)
+──────────────────────────────────────────────────────────────────────────────
+
+If you've ever wondered what your fastest 5-mile, 10K, or marathon time
+is — and gotten tired of scrolling through Apple Fitness to find it —
+check out Run Bests. It's a free iOS app that reads your running
+workouts from Apple Health and builds a sortable leaderboard of your
+real personal bests, grouped by race distance with a tunable margin of
+error so near-misses count. Race time vs. workout time, fastest
+segments, date filters, route maps — all local, no account needed.
+[App Store link]
+
+
+================================================================================
+PRESS / BLOG INTRO
+================================================================================
+
+A new iOS app called Run Bests aims to fill a long-standing gap in Apple's
+fitness ecosystem: an actual personal-record leaderboard for runners.
+
+While Apple Fitness diligently records every running workout, it offers no
+native way to see your fastest time at any particular distance — and
+distances in real-world running rarely line up exactly. A "5-mile run" might
+clock in at 5.1 miles one day and 5.05 the next, leaving traditional PR
+tracking either painfully manual or wildly imprecise.
+
+Run Bests solves the problem with what its developer calls "smart distance
+bracketing." Users set a target distance (in miles or kilometers) and a
+margin of error — typically 0.25 mi — and the app instantly pulls every
+qualifying run into a single sortable list. Each result shows both the time
+it took to cover the exact target distance (computed from GPS) and the
+full elapsed workout time, along with their respective paces.
+
+The app is local-only, reads from Apple Health, and is free on the App
+Store. [App Store link]
+
+
+================================================================================
+NOTES / TODO
+================================================================================
+
+• Replace "[App Store link]" with the actual URL after submission.
+• Subtitle is hard-capped at 30 chars by App Store Connect — verify each
+  alternate fits before submitting.
+• If launching with a Product Hunt post, mirror the Reddit body but trim
+  to ~600 chars and emphasize the technical bits (SwiftUI, local-first).
+• Keywords field is comma-separated with NO spaces between entries — Apple
+  treats spaces as part of a keyword.
