@@ -172,7 +172,7 @@ struct ContentView: View {
                 }
             }
         } else if health.state.isLoading && health.runs.isEmpty {
-            ProgressView("Reading runs from Health…")
+            LoadingView(state: health.state, progress: health.syncProgress)
         } else if health.runs.isEmpty {
             ContentUnavailableView(
                 "No runs yet",
@@ -186,6 +186,7 @@ struct ContentView: View {
                     filteredRuns: filteredRuns,
                     units: units,
                     lastSync: health.lastSync,
+                    isSyncing: health.state.isLoading,
                     openFilter: { showingFilter = true }
                 )
 
@@ -227,6 +228,7 @@ private struct SummarySection: View {
     let filteredRuns: [Run]
     let units: UnitSystem
     let lastSync: SyncSummary?
+    let isSyncing: Bool
     let openFilter: () -> Void
 
     var body: some View {
@@ -261,12 +263,17 @@ private struct SummarySection: View {
                 .buttonStyle(.plain)
                 .contentShape(Rectangle())
             }
-            if let sync = lastSync {
-                HStack {
-                    Label("Last synced", systemImage: "icloud.and.arrow.down")
-                    Spacer()
+            HStack {
+                Label(isSyncing ? "Syncing" : "Last synced",
+                      systemImage: isSyncing ? "icloud" : "icloud.and.arrow.down")
+                Spacer()
+                if isSyncing {
+                    ProgressView().controlSize(.small)
+                } else if let sync = lastSync {
                     Text(syncedText(sync))
                         .foregroundStyle(.secondary)
+                } else {
+                    Text("—").foregroundStyle(.tertiary)
                 }
             }
         } header: {
@@ -662,6 +669,76 @@ struct DateFilterSheet: View {
         }
         if !availableYears.contains(startYear) {
             startYear = availableYears.first ?? startYear
+        }
+    }
+}
+
+// MARK: - Loading view (first-launch + permission)
+
+private struct LoadingView: View {
+    let state: SyncState
+    let progress: SyncProgress?
+
+    var body: some View {
+        VStack(spacing: 28) {
+            Spacer()
+
+            Image(systemName: "figure.run")
+                .font(.system(size: 72, weight: .semibold))
+                .foregroundStyle(.tint)
+
+            VStack(spacing: 10) {
+                Text(title)
+                    .font(.title2.weight(.semibold))
+                    .multilineTextAlignment(.center)
+                if let subtitle {
+                    Text(subtitle)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+            }
+            .padding(.horizontal, 32)
+
+            if let progress, progress.total > 0 {
+                VStack(spacing: 8) {
+                    ProgressView(value: progress.fraction)
+                        .progressViewStyle(.linear)
+                        .frame(maxWidth: 260)
+                    Text("\(progress.processed) of \(progress.total) workouts")
+                        .font(.footnote.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                }
+            } else {
+                ProgressView()
+                    .controlSize(.large)
+            }
+
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.systemGroupedBackground))
+    }
+
+    private var title: String {
+        switch state {
+        case .authorizing: return "Connecting to Apple Health"
+        case .syncing: return "Syncing Health data"
+        case .failed: return "Something went wrong"
+        case .idle: return "Loading"
+        }
+    }
+
+    private var subtitle: String? {
+        switch state {
+        case .authorizing:
+            return "When asked, allow Run Bests to read your running workouts."
+        case .syncing:
+            return "This can take a moment the first time — we're pulling your full running history from Apple Health."
+        case .failed(let message):
+            return message
+        case .idle:
+            return nil
         }
     }
 }

@@ -51,14 +51,17 @@ struct PBCategory: Hashable, Identifiable {
 
     var supportsSortToggle: Bool { isRace }
 
-    /// Sort order in the main list — race distances by target, segments early, overall stats at the end.
+    /// Sort order in the main list. Three disjoint zones:
+    /// - Races: their distance in meters ([0, 999_999])
+    /// - Best segments: 1_000_000 + distance — always after races
+    /// - Overall stats: 2_000_000+ — always last
     var sortKey: Double {
         switch kind {
         case .race(let d, _): return d
-        case .fastestSplit(let d): return d / 1_000_000
-        case .longestDistance: return 1_000_000
-        case .longestDuration: return 1_000_001
-        case .fastestAveragePace: return 1_000_002
+        case .fastestSplit(let d): return 1_000_000 + d
+        case .longestDistance: return 2_000_000
+        case .longestDuration: return 2_000_001
+        case .fastestAveragePace: return 2_000_002
         }
     }
 

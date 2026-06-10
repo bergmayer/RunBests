@@ -48,16 +48,39 @@ struct RoutePoint: Hashable, Codable {
 
 enum SyncState: Equatable {
     case idle
+    case authorizing
     case syncing
     case failed(String)
 
-    var isLoading: Bool { self == .syncing }
-    var errorMessage: String? { if case .failed(let m) = self { return m } else { return nil } }
+    var isLoading: Bool {
+        switch self {
+        case .authorizing, .syncing: return true
+        case .idle, .failed: return false
+        }
+    }
+
+    var loadingDescription: String? {
+        switch self {
+        case .authorizing: return "Requesting Health access…"
+        case .syncing: return "Reading runs from Health…"
+        case .idle, .failed: return nil
+        }
+    }
+
+    var errorMessage: String? {
+        if case .failed(let m) = self { return m } else { return nil }
+    }
 }
 
 struct SyncSummary: Equatable {
     let date: Date
     let addedCount: Int
+}
+
+struct SyncProgress: Equatable, Hashable {
+    let processed: Int
+    let total: Int
+    var fraction: Double { total > 0 ? Double(processed) / Double(total) : 0 }
 }
 
 // MARK: - On-disk cache
@@ -147,6 +170,7 @@ final class HealthKitManager: ObservableObject {
     @Published private(set) var runs: [Run] = []
     @Published private(set) var state: SyncState = .idle
     @Published private(set) var lastSync: SyncSummary?
+    @Published private(set) var syncProgress: SyncProgress?
 
     private let store = HKHealthStore()
     private let cache = RunCache()
@@ -173,6 +197,8 @@ final class HealthKitManager: ObservableObject {
             state = .failed("Health data is not available on this device.")
             return
         }
+        state = .authorizing
+        defer { if case .authorizing = state { state = .idle } }
         do {
             try await store.requestAuthorization(toShare: [], read: readTypes)
         } catch {
@@ -183,7 +209,10 @@ final class HealthKitManager: ObservableObject {
     /// Incremental sync — only fetches workouts and supporting samples added or deleted since the last sync.
     func loadRuns() async {
         state = .syncing
-        defer { if case .syncing = state { state = .idle } }
+        defer {
+            if case .syncing = state { state = .idle }
+            syncProgress = nil
+        }
 
         do {
             let (newWorkouts, deletedIDs, newAnchor) = try await fetchIncrementalRunningWorkouts(anchor: cache.anchor)
@@ -211,12 +240,18 @@ final class HealthKitManager: ObservableObject {
     /// Hydrate `Run`s from incoming workouts. Each workout's route + heart-rate queries run in parallel,
     /// and multiple workouts are processed concurrently up to `Tuning.maxConcurrentWorkoutHydration`
     /// — important for first-time sync where serial processing of hundreds of workouts can take minutes.
+    /// Updates `syncProgress` as each workout finishes so the UI can show a live progress bar.
     private func buildRuns(from workouts: [HKWorkout]) async -> [Run] {
-        guard !workouts.isEmpty else { return [] }
+        guard !workouts.isEmpty else {
+            syncProgress = nil
+            return []
+        }
         let maxConcurrent = Tuning.maxConcurrentWorkoutHydration
+        syncProgress = SyncProgress(processed: 0, total: workouts.count)
 
         return await withTaskGroup(of: Run?.self, returning: [Run].self) { group in
             var nextIndex = 0
+            var completed = 0
             var built: [Run] = []
             built.reserveCapacity(workouts.count)
 
@@ -229,6 +264,8 @@ final class HealthKitManager: ObservableObject {
 
             for await maybeRun in group {
                 if let run = maybeRun { built.append(run) }
+                completed += 1
+                syncProgress = SyncProgress(processed: completed, total: workouts.count)
                 if nextIndex < workouts.count {
                     let workout = workouts[nextIndex]
                     nextIndex += 1
